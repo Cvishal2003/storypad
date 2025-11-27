@@ -72,18 +72,19 @@ class HomeView extends StatelessWidget {
     return ViewModelProvider<HomeViewModel>(
       create: (context) => HomeViewModel(),
       builder: (context, viewModel, child) {
+        // Temporarily disabling the wrappers to get the app to launch.
         return DesktopMainMenuPadding(
-          child: SpAppLockWrapper(
-            child: SpOnboardingWrapper(
-              onOnboarded: () => viewModel.onboard(),
+          // child: SpAppLockWrapper(
+          //   child: SpOnboardingWrapper(
+          //     onOnboarded: () => viewModel.onboard(),
               child: Builder(
                 builder: (context) {
                   _homeContext = context;
                   return _HomeContent(viewModel);
                 },
               ),
-            ),
-          ),
+          //   ),
+          // ),
         );
       },
     );

@@ -1,11 +1,19 @@
-import 'firebase_options/#{FLAVOR}.dart' deferred as #{FLAVOR};
-import 'main.dart' deferred as source;
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'firebase_options/#{FLAVOR}.dart';
+import 'main.dart' as app_main;
 
 Future<void> main() async {
-  await #{FLAVOR}.loadLibrary();
-  await source.loadLibrary();
+  WidgetsFlutterBinding.ensureInitialized();
 
-  return source.main(
-    firebaseOptions: #{FLAVOR}.DefaultFirebaseOptions.currentPlatform,
-  );
+  // Initialize firebase if it's not already initialized.
+  // This check is essential for hot restarts.
+  if (Firebase.apps.isEmpty) {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  }
+
+  // Run the main app code.
+  return app_main.main();
 }

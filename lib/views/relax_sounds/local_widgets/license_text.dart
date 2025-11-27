@@ -55,32 +55,15 @@ class _LicenseText extends StatelessWidget {
         return AlertDialog.adaptive(
           content: Padding(
             padding: const EdgeInsets.only(top: 8.0),
-            child: MarkdownBody(
-              listItemCrossAxisAlignment: MarkdownListItemCrossAxisAlignment.start,
-              styleSheet: MarkdownStyleSheet(
-                p: TextTheme.of(context).bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                ),
-                a: TextTheme.of(context).bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  decorationColor: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
-                  decoration: TextDecoration.underline,
-                ),
-              ),
-              data: tr(
+            child: SelectableText(
+              tr(
                 "sounds.credits",
                 context: context,
                 namedArgs: {
-                  'ALBUM_BACKGROUND_LINK': "[freepik.com](https://freepik.com)",
-                  'ORIGINAL_SOUND_LINK': "[freesound.org](https://freesound.org)",
+                  'ALBUM_BACKGROUND_LINK': "freepik.com",
+                  'ORIGINAL_SOUND_LINK': "freesound.org",
                   'APP_NAME': kAppName,
                 },
-              ),
-              onTapLink: (text, href, title) => UrlOpenerService.openForMarkdown(
-                context: context,
-                text: text,
-                href: href,
-                title: title,
               ),
             ),
           ),

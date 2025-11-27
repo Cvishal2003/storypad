@@ -6,7 +6,7 @@ import 'package:storypad/app_theme.dart';
 import 'package:storypad/core/constants/locale_constants.dart';
 import 'package:storypad/core/types/font_size_option.dart';
 import 'package:storypad/core/types/time_format_option.dart';
-import 'package:storypad/views/home/home_view.dart';
+import 'package:storypad/views/splash_screen.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -40,7 +40,7 @@ class App extends StatelessWidget {
               themeMode: themeMode,
               theme: theme,
               darkTheme: darkTheme,
-              home: const HomeView(),
+              home: const SplashScreen(), // <- Use the new SplashScreen
               localizationsDelegates: [
                 ...EasyLocalization.of(context)!.delegates,
                 DefaultCupertinoLocalizations.delegate,

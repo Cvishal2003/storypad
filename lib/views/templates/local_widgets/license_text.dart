@@ -53,29 +53,12 @@ class _LicenseText extends StatelessWidget {
       barrierDismissible: true,
       builder: (context) {
         return AlertDialog.adaptive(
-          content: MarkdownBody(
-            listItemCrossAxisAlignment: MarkdownListItemCrossAxisAlignment.start,
-            styleSheet: MarkdownStyleSheet(
-              p: TextTheme.of(context).bodyMedium?.copyWith(
-                color: Theme.of(context).colorScheme.onSurface,
-              ),
-              a: TextTheme.of(context).bodyMedium?.copyWith(
-                color: Theme.of(context).colorScheme.onSurface,
-                decorationColor: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
-                decoration: TextDecoration.underline,
-              ),
-            ),
-            data: tr(
+          content: SelectableText(
+            tr(
               'general.icons_credit',
               namedArgs: {
-                'ICON_LINK': '[freepik.com](https://www.freepik.com/author/juicy-fish/icons/juicy-fish-sketchy_908)',
+                'ICON_LINK': 'freepik.com',
               },
-            ),
-            onTapLink: (text, href, title) => UrlOpenerService.openForMarkdown(
-              context: context,
-              text: text,
-              href: href,
-              title: title,
             ),
           ),
         );

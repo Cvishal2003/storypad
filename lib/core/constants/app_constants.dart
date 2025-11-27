@@ -12,7 +12,7 @@ const String kEmailHasherSecreyKey = String.fromEnvironment('EMAIL_HASHER_SECRET
 const bool kIsCupertino = String.fromEnvironment('CUPERTINO') == 'yes';
 
 const Color kSplashColor = Colors.transparent;
-const Color kDefaultColorSeed = Colors.black;
+const Color kDefaultColorSeed = Color(0xFFE38A41);
 
 const String kDefaultFontFamily = 'Quicksand';
 const FontWeight kDefaultFontWeight = FontWeight.normal;
